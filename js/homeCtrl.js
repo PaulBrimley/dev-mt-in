@@ -1,4 +1,4 @@
-angular.module('devMtIn').controller('homeCtrl', function($scope, profileService) {
+angular.module('devMtIn').controller('homeCtrl', function($scope, profileService, friendService) {
 
 	$scope.sortOptions = [{
 		display: 'Ascending',
@@ -8,6 +8,8 @@ angular.module('devMtIn').controller('homeCtrl', function($scope, profileService
 		display: 'Descending',
 		value: true
 	}];
+
+	$scope.sortReverse = false;
 
 	$scope.editing = false;
 
@@ -23,17 +25,37 @@ angular.module('devMtIn').controller('homeCtrl', function($scope, profileService
 		}).catch(function(err) {
 			console.error(err);
 		});
-		$scope.myProfile = profileService.checkForProfile();
-		$scope.editing = false;
 	}
 
 	$scope.checkForProfile = function() {
 		var profileId = JSON.parse(localStorage.getItem('profileId'));
 		if(profileId) {
-			profileService.checkForProfile(profileId.profileId).then(function(profile) {
-				$scope.myProfile = profile.data;}).catch(function(err) {console.err(err)});
+			profileService.checkForProfile(profileId.profileId)
+			.then(function(profile) {
+				$scope.myProfile = profile.data;
+				friendService.findFriendsFriends(profile.data);
+			}).catch(function(err) {console.error(err)});
+			
 		}
 	}
 	$scope.checkForProfile();
+
+	$scope.findFriends = function(query) {
+		friendService.findFriends($scope.myProfile._id, query).then(function(response) {
+			$scope.potentialFriends = response.data;		
+		})
+	}
+
+	$scope.addFriend = function(friendId) {
+		friendService.addFriend($scope.myProfile._id, friendId).then(function() {
+			$scope.checkForProfile();
+		})
+	}
+
+	$scope.removeFriend = function(friendId) {
+		friendService.removeFriend($scope.myProfile._id, friendId).then(function() {
+			$scope.checkForProfile();
+		})
+	}
 
 });

@@ -21,7 +21,7 @@
     </div>
 
     <div>      
-
+      <div id="madeUp">{{myProfile._id}}</div>
       <input id="name" type="text" placeholder="Your Name" ng-model="myProfile.name" ng-disabled="!editing">
       <br />
 
@@ -30,20 +30,20 @@
 
       <input id="favColor" type="text" placeholder="Favorite Color" ng-model="myProfile.favColor" ng-disabled="!editing">
       <br />
-      <button class="l-btn l-btn-success" ng-click="saveProfile(myProfile)">Save</button>
-      <button class="l-btn l-btn-danger" ng-click="deleteProfile(myProfile)">Delete</button>
+      <button class="l-btn l-btn-success" ng-click="saveProfile(myProfile)" ng-disabled="!editing">Save</button>
+      <button class="l-btn l-btn-danger" ng-click="deleteProfile(myProfile)" ng-disabled="!editing">Delete</button>
     </div>
   </div>
 
   <div class="l-container">
     <h2>Friends</h2>
 
-    <button class="l-btn l-btn-main">Go</button>
-    <input type="text" placeholder="Find Friends" ng-model="findFriends.name">    
-    <select ng-model="sortOptions" ng-options="option.value as option.display for option in sortOptions"></select>
+    <button class="l-btn l-btn-main" ng-click="findFriends(potentialFriendName)">Go</button>
+    <input type="text" placeholder="Find Friends" ng-model="potentialFriendName">    
+    <select ng-model="sortReverse" ng-options="option.value as option.display for option in sortOptions"></select>
     <div class="friendList" ng-repeat="friend in myProfile.friends | filter: findFriends.name | orderBy: 'name' : sortReverse">
-      <span class="closeBtn"></span>
-        {{friend.name}}
+      <span class="closeBtn" ng-click="removeFriend(friend._id)"></span>
+        <div>&nbsp&nbsp&nbsp{{friend.name}}</div>
       <br />
       <div class="secondConnection friendList">
         My Second Connections
@@ -57,18 +57,25 @@
 				<div class="modalTitle">
 				<span class="closeBtn"></span>
 					Add Friends
+
 				</div>
 					<br />
-				<div class="friendList">
-					<span class="friend"></span> Potential Friends
+				<div class="friendList" ng-repeat="potentialFriend in potentialFriends">
+          <button ng-click="addFriend(potentialFriend._id)">Add Friend</button>
+					<span class="friend">
+              {{potentialFriend.name}}
+          </span>
 				</div>
 			</div>
 		</div>
 	</div>
+
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular.js"></script>
   <script src='js/app.js'></script>
   <script src='js/homeCtrl.js'></script>
   <script src='js/profileServices.js'></script>
+  <script src='js/friendServices.js'></script>
 </body>
 
 </html>

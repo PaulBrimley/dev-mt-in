@@ -1,8 +1,16 @@
 html,html .ng-scope{margin:0;padding:0}
 
-body{background-color:#fffcf9;background-image:url(/images/beach-sm-min.jpg);background-size:auto;background-repeat:no-repeat;position:relative;margin:0;padding:0}
+body {
+	background-color:#fffcf9;
+	background-image:url(/images/beach-sm-min.jpg);
+	background-size:auto;
+	background-repeat:no-repeat;
+	position:relative;
+	margin:0;
+	padding:0;
+}
 
-body ng-scope{margin:0;padding:0}
+body .ng-scope{margin:0;padding:0}
 
 button{font:Raleway,sans-serif;font-size:12px;font-weight:600;border:0}
 
@@ -11,6 +19,8 @@ button{font:Raleway,sans-serif;font-size:12px;font-weight:600;border:0}
 .l-btn-success{width:54px;height:30px;color:#212121;background-color:#6cf9f0}
 
 .l-btn-danger{width:54px;height:30px;color:#212121;background-color:#39c6bd}
+
+#madeUp{width:300px;height:25px;border:0;margin-bottom:5px;color:#212121;background-color:#ffffdf;padding-left:2%;font-family:Raleway,sans-serif}
 
 input{width:300px;height:30px;border:0;margin-bottom:5px;color:#212121;background-color:#ffffdf;padding-left:2%;font-family:Raleway,sans-serif}
 
@@ -24,9 +34,9 @@ h2{font-family:Raleway,sans-serif;font-size:1.5em;letter-spacing:.2em;color:#212
 
 .l-header h1 .ng-binding{margin:0;padding:0;height:45px}
 
-.wrapper{color:#212121;padding-top:8%;padding-left:25%;width:28%;float:left}
+.wrapper{color:#212121;padding-top:8%;padding-left:25%;width:28%;float:left;border:1px solid black;}
 
-.l-container{padding-top:2%;padding-left:25%;color:#212121;width:28%;float:left}
+.l-container{padding-top:2%;padding-left:25%;color:#212121;width:28%;float:left;border:1px solid black;}
 
 .l-container .friendList{width:290px;height:20px;color:#fffcf9;background-color:rgba(2,137,141,.5);font-family:Raleway,sans-serif;font-size:.8em;font-weight:600;padding:3px 0 0 20px;position:relative}
 
@@ -34,21 +44,22 @@ h2{font-family:Raleway,sans-serif;font-size:1.5em;letter-spacing:.2em;color:#212
 
 .l-container .friendList .secondConnection{position:relative;left:20px}
 
-#myModalMask{width:200px;height:365px;position:relative;margin-top:6%;margin-left:50%;overflow:hidden}
+#myModalMask{width:400px;height:365px;position:relative;margin-top:6%;margin-left:50%;overflow:hidden}
 
-#myModalMask #myModal{width:200px;height:365px;position:absolute;top:35px;left:0;overflow:auto;overflow-x:hidden;padding-right:25px}
+#myModalMask #myModal{width:400px;height:365px;position:absolute;top:35px;left:0;overflow:auto;overflow-x:hidden;padding-right:25px}
 
-#myModalMask #myModal div{width:200px;height:100%}
+#myModalMask #myModal div{width:400px;height:100%}
 
-#myModalMask #myModal div .modalTitle{width:240px;height:30px;font-family:Raleway,sans-serif;font-size:1.5em;font-weight:700;letter-spacing:.2em;color:#212121;margin:0 auto 5px}
+#myModalMask #myModal div .modalTitle{width:440px;height:30px;font-family:Raleway,sans-serif;font-size:1.5em;font-weight:700;letter-spacing:.2em;color:#212121;margin:0 auto 5px}
 
 #myModalMask #myModal div .closeBtn:before{content:'X';font-size:.7em;padding:2px 2px 2px 3px;height:30px;width:30px;color:#fffcf9;background-color:#212121;text-align:center}
 
-#myModalMask #myModal div .friendList{width:240px;height:20px;color:#fffcf9;background-color:rgba(2,137,141,.5);font-family:Raleway,sans-serif;font-size:.8em;font-weight:600;padding:3px 0 0 30px;position:relative}
+#myModalMask #myModal div .friendList{width:440px;height:20px;color:#fffcf9;background-color:rgba(2,137,141,.5);font-family:Raleway,sans-serif;font-size:.8em;font-weight:600;padding:3px 0 0 30px;position:relative}
 
 #myModalMask #myModal div .friendList .friend::before{content:'+';font-size:1.5em;margin-right:8px;height:20px;width:20px;color:#fffcf9;background-color:#212121;position:absolute;top:2px;left:2px;text-align:center}
 
-@media (max-width:1024px) and (orientation:landscape){.wrapper{padding-left:18%}
+@media (max-width:1024px) and (orientation:landscape){
+	.wrapper{padding-left:18%}
 	.l-container{padding-left:3%}
 }
 
